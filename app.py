@@ -18,6 +18,20 @@ def export_to_csv():
             writer.writerow([apple, count])
     print("\n[Vibe Code] Exported to report.csv successfully!")
 
+# NEW FEATURE: Calculate total boxes and display summary alert
+def show_total_summary():
+    total_boxes = sum(inventory.values())
+    alert_border = "=" * 50
+    print(f"\n{alert_border}")
+    print(f"📦 INVENTORY SUMMARY ALERT")
+    print(f"{alert_border}")
+    print(f"Total Apple Boxes in Stock: {total_boxes} boxes")
+    print(f"Varieties: {len(inventory)}")
+    for apple, count in inventory.items():
+        print(f"  • {apple}: {count} boxes")
+    print(f"{alert_border}\n")
+
 if __name__ == "__main__":
     show_inventory()
     export_to_csv() # Automatically runs the export
+    show_total_summary() # Display summary alert
